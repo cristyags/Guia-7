@@ -22,7 +22,7 @@ formulario.addEventListener("submit",(event)=>{
     const carrera = document.forms["frmRegistro"]["idRdCarrera"].value;
     const pais = document.forms["frmRegistro"]["idCmPais"].value;
     const archivo = document.forms["frmRegistro"]["idArchivo"].value;
-    const intereses=document.forms["frmRegistro"]["intereses"].value;
+    const intereses=document.forms["frmRegistro"]["intereses"];
     if (
     !nombre.trim() ||
     !apellido.trim() ||
@@ -53,8 +53,34 @@ if (!intereses.trim()) {
     alert("Debes escoger un interes");
     return;
 }
+// Verifique que debe estar seleccionada al menos una opción para "algunos intereses".
+let interesesValor = "";
+for (let i = 0; i < intereses.length; ++i) {
+    if (intereses[i].checked) {
+        interesesValor = intereses[i].value;
+    }
+}
+if (!interesesValor) {
+    alert("Debes escoger un interes");
+    return;
+}
+// Verifique que el usuario seleccione una carrera.
+if (!carrera.trim()) {
+    alert("Debes escoger una carrera");
+    return;
+}
+// Validar fechaNacimiento
+if (new Date(fechaNacimiento) > new Date()) {
+    alert("Fecha no puede ser mayor a hoy");
+    return;
+}
 
-
+bodyModal.removeChild()
+const content = document.createElement('div');
+const newText = document.createTextNode(...);
+content.appendChild(newText );
+bodyModal.appendChild(content);
+modal.show();
 })
 // Recorrer el formulario
 const recorrerFormulario = function () {
