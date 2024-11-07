@@ -77,7 +77,7 @@ if (new Date(fechaNacimiento) > new Date()) {
 
 bodyModal.removeChild()
 const content = document.createElement('div');
-const newText = document.createTextNode(...);
+const newText = document.createTextNode('');
 content.appendChild(newText );
 bodyModal.appendChild(content);
 modal.show();
