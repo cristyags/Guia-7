@@ -22,7 +22,8 @@ formulario.addEventListener("submit",(event)=>{
     const carrera = document.forms["frmRegistro"]["idRdCarrera"].value;
     const pais = document.forms["frmRegistro"]["idCmPais"].value;
     const archivo = document.forms["frmRegistro"]["idArchivo"].value;
-    const intereses=document.forms["frmRegistro"]["intereses"];
+    const intereses=document.forms["frmRegistro"]["interes"];
+    console.log(intereses)
     if (
     !nombre.trim() ||
     !apellido.trim() ||
@@ -46,11 +47,6 @@ if (!emailRegex.test(correo)) {
 // Valide que los campos contraseña y repetir contraseña, sean iguales.
 if (password !== repetirPassword) {
     alert("Las contraseñas no coinciden");
-    return;
-}
-// Verifique que debe estar seleccionada al menos una opción para "algunos intereses".
-if (!intereses.trim()) {
-    alert("Debes escoger un interes");
     return;
 }
 // Verifique que debe estar seleccionada al menos una opción para "algunos intereses".
